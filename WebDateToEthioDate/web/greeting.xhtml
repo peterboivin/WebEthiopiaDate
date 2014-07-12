@@ -1,0 +1,55 @@
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <h:form>
+            <h2>
+                Please Input Your Date of Interest
+            </h2>
+            <h:outputText id="day" value="Input Day: "/>
+            <h:inputText id="inputDay" title="Input your Day of the Month of Interest: " maxlength="2" value="#{dateConverter.day}">
+                <f:validateLongRange minimum="#{dateConverter.minimum}"
+                                     maximum="#{dateConverter.maximumDay}"/>
+            </h:inputText>
+            <h:outputText id="month" value="Input Month: "/>
+            <h:inputText id="inputMonth" title="Input your Month of the Year of Interest: " value="#{dateConverter.month}">
+                <f:validateLongRange minimum="#{dateConverter.minimum}"
+                                     maximum="#{dateConverter.maximumMonth}"/>
+            </h:inputText>
+            <h:outputText id="year" value="Input Year: "/>
+            <h:inputText id="inputYear" title="Input your Year of Interest: " value="#{dateConverter.year}">
+                <f:validateRequired/>
+            </h:inputText>
+            <h:commandButton id="submit" value="Submit"
+                             action="response"/>
+            <h:message showSummary="true" showDetail="false"
+                       style="color: #d20005;
+                       font-family: 'New Century Schoolbook', serif;
+                       font-style: oblique;
+                       text-decoration: overline"
+                       id="errorsDay"
+                       for="inputDay"/>
+            <h:message showSummary="true" showDetail="false"
+                       style="color: #d20005;
+                       font-family: 'New Century Schoolbook', serif;
+                       font-style: oblique;
+                       text-decoration: overline"
+                       id="errorsMonth"
+                       for="inputMonth"/>
+            <h:message showSummary="true" showDetail="false"
+                       style="color: #d20005;
+                       font-family: 'New Century Schoolbook', serif;
+                       font-style: oblique;
+                       text-decoration: overline"
+                       id="errorsYear"
+                       for="inputYear"/>
+        </h:form>
+    </h:head>
+</html>
